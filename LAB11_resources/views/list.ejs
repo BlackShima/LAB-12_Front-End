@@ -1,20 +1,17 @@
-
-
-<div class="box" id="heading">
-  <%- include("partials/header") %>
-  <h1>Today</h1>
-
-</div>
-<div class="box">
-  <form>
-    <div class="item">
-      <input type="checkbox" name="checkbox" />
-      <p>Buy food</p>
-    </div>
-  </form>
-</div>
+<%- include("partials/header") %> <div class="box" id="heading">
+  <h1> <%= listTitle %> </h1> </div>
 
 <div class="box">
+  <% newListItems.forEach(function(item) { %> <form action="/delete" method="post"> <div class="item">
+        <input 
+          type="checkbox" 
+          name="checkbox" 
+          value="<%= item.id %>" 
+          onChange="this.form.submit()" 
+        /> <p> <%= item.name %> </p> </div>
+    </form>
+  <% }) %>
+
   <form class="item" action="/" method="post">
     <input
       type="text"
@@ -22,11 +19,8 @@
       placeholder="New item"
       autocomplete="off"
     />
-    <button class="list" type="submit" name="list" value="<%= listTitle %>"> + </button>
-  </form>  
+    <button type="submit" name="list" value="<%= listTitle %>"> + </button>
+  </form>
 </div>
 
-<%- include("partials/footer") %>
-
-
-
+<%- include("partials/footer") %> ```
