@@ -53,7 +53,7 @@ class TodoItemsModel extends BaseSQLModel {
   }
 
   async getTodoItemsName(){
-    const results =  await this.findByColumn('name');
+    const results =  await this.findAll();
     return results;
 
   }

@@ -1,4 +1,9 @@
-<%- include("partials/header") %> <div class="box" id="heading">
+<%- include("partials/header") %> 
+<div class="box" id="heading">
+  <% if (user) { %>
+    <h3 style="color: white; padding-top: 10px;">Hello, <%= user.username %></h3> 
+    <p><a href="/logout" style="color: white; text-decoration: none;">Log out</a></p>
+  <% } %>
   <h1> <%= listTitle %> </h1> </div>
 
 <div class="box">
@@ -6,7 +11,7 @@
         <input 
           type="checkbox" 
           name="checkbox" 
-          value="<%= item.id %>" 
+          value="<%=item.id %>" 
           onChange="this.form.submit()" 
         /> <p> <%= item.name %> </p> </div>
     </form>

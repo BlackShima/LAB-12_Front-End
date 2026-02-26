@@ -11,8 +11,8 @@ class UserModel extends BaseSQLModel {
     console.log("Hello!");
   }
 
-  async getUserByEmail(email) {
-    const results =  await this.findByKey('email', email);
+  async getUserByUsername(username) {
+    const results =  await this.findByKey('username', username);
     return results;
   }
 
